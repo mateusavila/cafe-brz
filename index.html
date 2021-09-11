@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite App</title>
+  </head>
+  <body>
+    <div id="app">
+      <header>
+        <div class="container">
+          <h1>Documentação da rota da busca</h1>
+        </div>
+      </header>
+      <main>
+        <div class="container">
+          <h2>Conheça nosso time</h2>
+          <form action="#" method="post" id="filter_data">
+            <div class="filtro">
+              <div class="filtro-item">
+                <input type="search" name="search" id="search" placeholder="ADVOGADO">
+              </div>
+              <div class="filtro-item">
+                <select name="team_area" id="team_area">
+                  <option value="">Áreas</option>
+                  <option value="contencioso-civel-e-arbitragem">CONTENCIOSO CÍVEL E ARBITRAGEM</option>
+                  <option value="contencioso-tributario">CONTENCIOSO TRIBUTÁRIO</option>
+                  <option value="contratos">CONTRATOS</option>
+                  <option value="direito-bancario">DIREITO BANCÁRIO</option>
+                  <option value="direito-concorrencial">DIREITO CONCORRENCIAL</option>
+                  <option value="direito-imobiliario">DIREITO IMOBILIÁRIO</option>
+                  <option value="direito-publico">DIREITO PÚBLICO</option>
+                  <option value="direito-regulatorio">DIREITO REGULATÓRIO</option>
+                  <option value="direito-societario">DIREITO SOCIETÁRIO</option>
+                  <option value="direito-tributario">DIREITO TRIBUTÁRIO</option>
+                  <option value="energia_eletrica">ENERGIA ELÉTRICA</option>
+                  <option value="farma-saude">FARMA &amp; SAÚDE</option>
+                  <option value="fusoes-e-aquisicoes">FUSÕES E AQUISIÇÕES</option>
+                  <option value="gestao-de-patrimonio">GESTÃO DE PATRIMÔNIO</option>
+                  <option value="mercado-de-capitais">MERCADO DE CAPITAIS</option>
+                  <option value="mineracao">MINERAÇÃO</option>
+                  <option value="petroleo-e-gas">PETRÓLEO E GÁS</option>
+                  <option value="projetos-de-infraestrutura">PROJETOS DE INFRAESTRUTURA</option>
+                  <option value="telecom">TELECOM</option>
+                  <option value="venture-capital-startups">VENTURE CAPITAL / STARTUPS</option>
+                </select>
+              </div>
+              <div class="filtro-item">
+                <select class="form-control" id="team_office">
+                  <option value="">Escritório</option>
+                  <option value="barra-da-tijuca-rj">BARRA DA TIJUCA / RJ</option>
+                  <option value="curitiba-pr">CURITIBA / PR</option>
+                  <option value="flamengo-rj">FLAMENGO / RJ</option>
+                  <option value="ipanema-rj">IPANEMA / RJ</option>
+                  <option value="sao-paulo-sp">SÃO PAULO / SP</option>
+                </select>
+              </div>
+              <div class="filtro-item">
+                <button type="submit">OK</button>
+              </div>
+            </div>
+            <div class="alfabeto" id="alfabeto">
+              <button data-letter="a">A</button>
+              <button data-letter="b">B</button>
+              <button data-letter="c">C</button>
+              <button data-letter="d">D</button>
+              <button data-letter="e">E</button>
+              <button data-letter="f">F</button>
+              <button data-letter="g">G</button>
+              <button data-letter="h">H</button>
+              <button data-letter="i">I</button>
+              <button data-letter="j">J</button>
+              <button data-letter="k">K</button>
+              <button data-letter="l">L</button>
+              <button data-letter="m">M</button>
+              <button data-letter="n">N</button>
+              <button data-letter="o">O</button>
+              <button data-letter="p">P</button>
+              <button data-letter="q">Q</button>
+              <button data-letter="r">R</button>
+              <button data-letter="s">S</button>
+              <button data-letter="t">T</button>
+              <button data-letter="u">U</button>
+              <button data-letter="v">V</button>
+              <button data-letter="w">W</button>
+              <button data-letter="x">X</button>
+              <button data-letter="y">Y</button>
+              <button data-letter="z">Z</button>
+            </div>
+          </form>
+          <div class="advogados">
+            <ul id="advogados" class="advogados-list"></ul>
+          </div>
+          <div class="pagination" id="pagination"></div>
+          <div class="document">
+            <div class="document-container">
+              <h2>Documentação</h2>
+              <p>No código fonte deste arquivo, fiz 100% em js puro, no intuito de copiar e colar o js, com todas as chamadas lá. Se quiser fazer manualmente, recomendo que faça chamadas para a URL abaixo:</p>
+              <p><strong>https://cafedas4.com.br/preview/brz/wp-json/api/team</strong></p>
+              <p>Os atributos que esta URL aceita:</p>
+              <table>
+                <thead>
+                  <tr>
+                    <th>Atributo</th>
+                    <th>Valores possíveis</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>page</strong></td>
+                    <td>(int) Adiciona a página. Padrão 1</td>
+                  </tr>
+                  <tr>
+                    <td><strong>per_page</strong></td>
+                    <td>(int) Adiciona a quantidade de registros por página. Padrão 8</td>
+                  </tr>
+                  <tr>
+                    <td><strong>name</strong></td>
+                    <td>(string) Filtra por nome.</td>
+                  </tr>
+                  <tr>
+                    <td><strong>team_area</strong></td>
+                    <td>(string) Filtra por área de trabalho. Observe que neste exemplo aqui, nas opções do select, utilizamos <strong>slugs</strong> que foram geradas pelo Wordpress.</td>
+                  </tr>
+                  <tr>
+                    <td><strong>team_office</strong></td>
+                    <td>(string) Filtra por escritório. Observe que neste exemplo aqui, nas opções do select, utilizamos <strong>slugs</strong> que foram geradas pelo Wordpress.</td>
+                  </tr>
+                  <tr>
+                    <td><strong>team_letter</strong></td>
+                    <td>(string) Filtra por letra.</td>
+                  </tr>
+                </tbody>
+              </table>
+              <p>Exemplos de uso:</p>
+              <table>
+                <thead>
+                  <tr>
+                    <th>Filtragem</th>
+                    <th>Rota a ser gerada</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Pegar todos os advogados</td>
+                    <td><a href="https://cafedas4.com.br/preview/brz/wp-json/api/team?page=1&per_page=8" target="_blank" rel="noopener noreferrer">https://cafedas4.com.br/preview/brz/wp-json/api/team?page=1&per_page=8</a></td>
+                  </tr>
+                  <tr>
+                    <td>Filtrar pelo nome Paulo</td>
+                    <td><a href="https://cafedas4.com.br/preview/brz/wp-json/api/team?page=1&per_page=8&name=Paulo" target="_blank" rel="noopener noreferrer">https://cafedas4.com.br/preview/brz/wp-json/api/team?page=1&per_page=8&name=Paulo</a></td>
+                  </tr>
+                  <tr>
+                    <td>Filtrar pela área Contratos</td>
+                    <td><a href="https://cafedas4.com.br/preview/brz/wp-json/api/team?page=1&per_page=8&team_area=contratos" target="_blank" rel="noopener noreferrer">https://cafedas4.com.br/preview/brz/wp-json/api/team?page=1&per_page=8&team_area=contratos</a></td>
+                  </tr>
+                  <tr>
+                    <td>Filtrar pelo escritório de Curitiba/PR</td>
+                    <td><a href="https://cafedas4.com.br/preview/brz/wp-json/api/team?page=1&per_page=8&team_office=curitiba-pr" target="_blank" rel="noopener noreferrer">https://cafedas4.com.br/preview/brz/wp-json/api/team?page=1&per_page=8&team_office=curitiba-pr</a></td>
+                  </tr>
+                  <tr>
+                    <td>Filtrar pela letra M (que tem paginação)</td>
+                    <td><a href="https://cafedas4.com.br/preview/brz/wp-json/api/team?page=1&per_page=1&team_letter=m" target="_blank" rel="noopener noreferrer">https://cafedas4.com.br/preview/brz/wp-json/api/team?page=1&per_page=1&team_letter=m</a></td>
+                  </tr>
+                  <tr>
+                    <td>Filtrar pelo nome Paulo e pela área Contencioso Cível e Arbitragem</td>
+                    <td><a href="https://cafedas4.com.br/preview/brz/wp-json/api/team?page=1&per_page=8&name=Paulo&team_area=contencioso-civel-e-arbitragem" target="_blank" rel="noopener noreferrer">https://cafedas4.com.br/preview/brz/wp-json/api/team?page=1&per_page=8&name=Paulo&team_area=contencioso-civel-e-arbitragem</a></td>
+                  </tr>
+                  <tr>
+                    <td>Filtrar pelo nome Maria e pela área Contratos e pelo escritório de Curitiba/PR</td>
+                    <td><a href="https://cafedas4.com.br/preview/brz/wp-json/api/team?page=1&per_page=8&name=Maria&team_area=contratos&team_office=curitiba-pr" target="_blank" rel="noopener noreferrer">https://cafedas4.com.br/preview/brz/wp-json/api/team?page=1&per_page=8&name=Maria&team_area=contratos&team_office=curitiba-pr</a></td>
+                  </tr>
+                  <tr>
+                    <td>Filtrar pelo nome Maria, pela área Contratos, pelo escritório de Curitiba/PR e pela letra M (<strong>não implementado neste exemplo, mas pronto na API</strong>)</td>
+                    <td><a href="https://cafedas4.com.br/preview/brz/wp-json/api/team?page=1&per_page=8&name=Maria&team_area=contratos&team_office=curitiba-pr&team_letter=m" target="_blank" rel="noopener noreferrer">https://cafedas4.com.br/preview/brz/wp-json/api/team?page=1&per_page=8&name=Maria&team_area=contratos&team_office=curitiba-pr&team_letter=m</a></td>
+                  </tr>
+                </tbody>
+              </table>
+              <p>No código fonte eu fiz uma implementação em Javascript puro. Confesso que está um pouco confuso, mas fiz apenas para provar que o código funciona.</p>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+    <script type="module" src="/main.js"></script>
+  </body>
+</html>
