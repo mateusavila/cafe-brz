@@ -102,7 +102,7 @@ const letterButtons = document.querySelectorAll('#alfabeto button');
     }
     event.target.classList.add('active')
     const letter = event.target.dataset.letter
-    const code = await fetch(`${APIURL}/wp-json/api/team?page=${1}&per_page=1&team_letter=${letter}`, { mode: 'cors', cache: 'reload' })
+    const code = await fetch(`${APIURL}/wp-json/api/team?page=${1}&per_page=8&team_letter=${letter}`, { mode: 'cors', cache: 'reload' })
     const req = await code.json()
     const { data: { team, max_pages, found_posts } } = req
     buildList(team)
@@ -127,7 +127,7 @@ function buildPaginationLetter (max_pages, found_posts, active_page) {
       }
       event.target.classList.add('active')
       const letter = document.querySelector('#alfabeto button.active').dataset.letter
-      const code = await fetch(`${APIURL}/wp-json/api/team?page=${page}&per_page=1&team_letter=${letter}`, { mode: 'cors', cache: 'reload' })
+      const code = await fetch(`${APIURL}/wp-json/api/team?page=${page}&per_page=8&team_letter=${letter}`, { mode: 'cors', cache: 'reload' })
       const req = await code.json()
       const { data: { team, max_pages, found_posts } } = req
       buildList(team)
